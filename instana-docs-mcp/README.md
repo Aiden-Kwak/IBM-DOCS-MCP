@@ -39,12 +39,19 @@ npm run build
 
 ### Claude Code
 
-프로젝트 루트에 `.mcp.json` 생성:
+**방법 1: CLI 명령어** (권장)
+
+```bash
+claude mcp add instana-docs -- node /absolute/path/to/instana-docs-mcp/dist/index.js
+```
+
+**방법 2: `.mcp.json`** (프로젝트 루트에 생성, 팀 공유용)
 
 ```json
 {
   "mcpServers": {
     "instana-docs": {
+      "type": "stdio",
       "command": "node",
       "args": ["/absolute/path/to/instana-docs-mcp/dist/index.js"]
     }

@@ -51,12 +51,19 @@ npm run build
 
 ### Claude Code
 
-프로젝트 루트에 `.mcp.json` 생성:
+**방법 1: CLI 명령어** (권장)
+
+```bash
+claude mcp add apic-docs -- node /absolute/path/to/apic-docs-mcp/dist/index.js
+```
+
+**방법 2: `.mcp.json`** (프로젝트 루트에 생성, 팀 공유용)
 
 ```json
 {
   "mcpServers": {
     "apic-docs": {
+      "type": "stdio",
       "command": "node",
       "args": ["/absolute/path/to/apic-docs-mcp/dist/index.js"]
     }
@@ -81,6 +88,7 @@ npm run build
 
 > 여러 서버를 동시에 사용하려면 `mcpServers` 안에 서버를 추가하면 됩니다.
 > `alwaysAllow`를 설정하면 도구 사용 시 매번 승인하지 않아도 됩니다.
+> `.mcp.json`의 환경변수는 `${VAR:-default}` 문법을 지원합니다.
 
 ## Tech Stack
 
